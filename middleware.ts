@@ -23,12 +23,14 @@ export default clerkMiddleware(async (auth, request) => {
 
   }
 
-  if (!currentHost) {
+  if (!currentHost || currentHost == 'localhost') {
     return NextResponse.next()
   }
-
+  console.log(currentHost)
   // testing subdomain
-  return NextResponse.rewrite(new URL(`/tenant${pathname}`, request.url))
+  const rewrittenUrl = new URL(`/${currentHost}${pathname}`, request.url);
+  console.log("Rewriting to:", rewrittenUrl.href);
+  return NextResponse.rewrite(rewrittenUrl);
 
   
 
