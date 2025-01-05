@@ -2,7 +2,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 const isPublicRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)", "/"]);
-const isSubdomainRoute = ["/test"];
+const homePagePaths = ["/", "/about-us", "/blog", "/get-started", "/about-us"];
 
 export default clerkMiddleware(async (auth, request) => {
   console.log("Middleware running");
@@ -28,10 +28,12 @@ export default clerkMiddleware(async (auth, request) => {
 
   console.log(currentHost);
 
-  // Check if the path is in the restricted paths array and if the request is from localhost
-  const isRestrictedPath = isSubdomainRoute.some(restrictedPath => pathname.startsWith(restrictedPath))
-  if (isRestrictedPath && (currentHost === 'localhost' || !currentHost)) {
-    console.log(`Access to ${pathname} denied for localhost.`)
+  // Check if the requested path is not in the homepagePaths array
+  const isHomepagePath = homePagePaths.includes(pathname)
+  
+  // If the path is not in the homepagePaths and the request is from localhost, block access
+  if (!isHomepagePath && (currentHost === 'localhost' || !currentHost)) {
+    console.log(`Access to ${pathname} denied for localhost. Not a homepage path.`)
     return NextResponse.redirect(new URL(`/`, request.url)) // Redirect to home or show a 404 page
   }
 
