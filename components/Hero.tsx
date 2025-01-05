@@ -19,9 +19,10 @@ export function Hero() {
             </div>
             <span className="ml-3 text-gray-400">1,254 happy schools</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-black dark:text-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-black dark:text-white mb-6 leading-tight dark:filter dark:drop-shadow-[0_0_10px_rgba(0,0,255,2.8)]">
             Modern Education Management{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent dark:filter dark:drop-shadow-[0_0_10px_rgba(0,0,255,0.8)] ">
+
               Made Simple
             </span>
           </h1>
@@ -31,10 +32,12 @@ export function Hero() {
             educational excellence.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-md text-lg font-medium">
+            <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-md text-lg font-medium dark:filter dark:drop-shadow-[0_0_10px_rgba(0,0,255,2.8)]">
               Request Demo
             </button>
-            <button className="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-black dark:text-white px-8 py-4 rounded-md text-lg font-medium">
+            <button className="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-black dark:text-white px-8 py-4 rounded-md text-lg font-medium
+            dark:filter dark:drop-shadow-[0_0_10px_rgba(0,0,255,0.8)]">
+
               Get Started
             </button>
           </div>
