@@ -47,6 +47,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html
         lang="en"
+        suppressHydrationWarning
         className="dark"
         style={{
           colorScheme: "dark",

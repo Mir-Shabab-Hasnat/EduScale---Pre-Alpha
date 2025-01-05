@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 import {motion} from 'framer-motion';
-import { BorderBeam } from '../magicui/border-beam';
+
 import { ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
@@ -37,11 +37,11 @@ export default function HeroSection() {
                         <div className="relative flex max-w-4xl justify-center overflow-hidden mt-7">
                             <div className="relative rounded-xl">
                                 <img
-                                    
+                                    src='/hero.jpg'
                                     alt="Hero Image"
                                     className="block w-[1400px] rounded-[inherit] border object-contain shadow-lg"
                                 />
-                                <BorderBeam size={250} duration={12} delay={9} />
+                                
                             </div>
                         </div>
                     </motion.div>
