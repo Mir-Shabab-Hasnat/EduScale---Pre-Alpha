@@ -1,11 +1,15 @@
 "use client"
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import Link from "next/link";
+
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+
+import {motion} from 'framer-motion';
 import { BorderBeam } from '../magicui/border-beam';
-import { Button } from "../../ui/button";
+import { ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
+    
+
     return (
         <div className='flex flex-col items-center justify-center mt-[7rem] mb-[3rem] p-3'>
             <h1 className="scroll-m-20 text-3xl sm:text-3xl md:text-5xl font-semibold tracking-tight lg:text-5xl text-center max-w-[550px]">
@@ -33,14 +37,9 @@ export default function HeroSection() {
                         <div className="relative flex max-w-4xl justify-center overflow-hidden mt-7">
                             <div className="relative rounded-xl">
                                 <img
-                                    src="/home.png"
+                                    
                                     alt="Hero Image"
-                                    className="block dark:hidden w-[1400px] rounded-[inherit] border object-contain shadow-lg"
-                                />
-                                <img
-                                    src="/dash-dark.png"
-                                    alt="Hero Image"
-                                    className="hidden dark:block w-[1400px] rounded-[inherit] border object-contain shadow-lg"
+                                    className="block w-[1400px] rounded-[inherit] border object-contain shadow-lg"
                                 />
                                 <BorderBeam size={250} duration={12} delay={9} />
                             </div>
@@ -48,7 +47,6 @@ export default function HeroSection() {
                     </motion.div>
                 </div>
             </div>
-
         </div>
-    )
+    );
 }
