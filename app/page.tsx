@@ -8,7 +8,6 @@ import PageWrapper from "@/components/new/container/page-wrapper";
 import HeroSection from "@/components/new/homepage/hero";
 
 // type Theme = "light" | "dark" | "system";
-import dynamic from 'next/dynamic'
 
 
 export default function Home() {

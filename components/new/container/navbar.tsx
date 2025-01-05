@@ -3,7 +3,7 @@ import {
     NavigationMenu,
     NavigationMenuList
 } from "@/components/ui/navigation-menu"
-import { useAuth } from "@clerk/nextjs"
+import { SignInButton, useAuth } from "@clerk/nextjs"
 import { Dialog, DialogClose } from "@radix-ui/react-dialog"
 import { BookOpen } from 'lucide-react'
 import Link from "next/link"
@@ -14,7 +14,9 @@ import { Profile } from "../user-profile"
 import ModeToggle from "../mode-toggle"
 
 export function NavBar() {
-    const { userId } = useAuth();
+    const { userId, isSignedIn } = useAuth();
+
+    
 
     return (
         <div className="flex items-center min-w-full w-full fixed justify-center p-2 z-10">
@@ -53,7 +55,11 @@ export function NavBar() {
                 </NavigationMenu>
                 <div className="flex items-center gap-2">
                     <ModeToggle />
-                    {userId && <Profile />}
+                    {userId ? (<Profile />) : (
+                        
+                        <SignInButton />
+                        
+                    )}
                 </div>
             </div>
         </div>
