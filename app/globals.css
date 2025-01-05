@@ -15,22 +15,20 @@
   --text-dark-secondary: #aaaaaa;
 }
 
-html.light {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --secondary-text-color: #555555;
-}
-
-html.dark {
-  --bg-color: #1a1a1a;
-  --text-color: #ffffff;
-  --secondary-text-color: #aaaaaa;
-}
 
 html {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+html.light {
+  color-scheme: light;
+  background-color: #ffffff;
+  color: #000000;
+}
+html.dark {
+  color-scheme: dark;
+  background-color: #000000;
+  color: #ffffff;
+
 }
 
 body {

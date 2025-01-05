@@ -1,11 +1,11 @@
+"use client";
+
 import React from "react";
 import { Github, Twitter, Linkedin, MessageSquare } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
-interface FooterProps {
-  theme: "light" | "dark" | "system";
-  setTheme: (theme: "light" | "dark" | "system") => void;
-}
-export function Footer({ theme, setTheme }: FooterProps) {
+
+export function Footer() {
+
+
   return (
     <footer className="border-t border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -40,7 +40,8 @@ export function Footer({ theme, setTheme }: FooterProps) {
             </nav>
           </div>
           <div className="flex items-center gap-6">
-            <ThemeToggle theme={theme} setTheme={setTheme} />
+            
+
             <div className="flex items-center gap-4">
               <a
                 href="#"
@@ -73,3 +74,4 @@ export function Footer({ theme, setTheme }: FooterProps) {
     </footer>
   );
 }
+
