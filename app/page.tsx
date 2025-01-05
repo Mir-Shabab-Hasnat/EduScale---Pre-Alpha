@@ -1,15 +1,18 @@
-"use client";
-import Image from "next/image";
-import { Navbar } from "../components/navbar"
-import { Hero } from "../components/Hero";
-import { Footer } from "../components/Footer";
-import { useEffect, useState } from "react";
+"use clienmt"
+// import Image from "next/image";
+// import { Navbar } from "../components/navbar"
+// import { Hero } from "../components/Hero";
+// import { Footer } from "../components/Footer";
+// import { useEffect, useState } from "react";
 import PageWrapper from "@/components/new/container/page-wrapper";
+import HeroSection from "@/components/new/homepage/hero";
 
-type Theme = "light" | "dark" | "system";
+// type Theme = "light" | "dark" | "system";
+import dynamic from 'next/dynamic'
 
 
 export default function Home() {
+  
   return (
     <PageWrapper>
       <div className="flex flex-col max-w-[70rem]">
