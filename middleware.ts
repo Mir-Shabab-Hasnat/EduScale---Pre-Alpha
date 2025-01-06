@@ -2,7 +2,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 const isPublicRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)", "/"]);
-const homePagePaths = ["/", "/about-us", "/blog", "/get-started", "/about-us", "/sign-in", "/sign-up"];
+const homePagePaths = ["/", "/about-us", "/blog", "/get-started", "/about-us", "/sign-in", "/sign-up", ""];
 
 export default clerkMiddleware(async (auth, request) => {
   console.log("Middleware running");
