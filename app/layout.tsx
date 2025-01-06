@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
+import ThemeProvider from "../components/ThemeToggle";
 import { Navbar } from "../components/navbar";
-
 import { ClerkProvider } from "@clerk/nextjs";
 import Provider from "./provider";
 import { ThemeProvider } from "@/components/new/theme-provider";
