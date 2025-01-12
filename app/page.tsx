@@ -16,6 +16,35 @@ import { redirect } from "next/navigation";
 
 export default async function Home() {
   
+  const user = await currentUser();
+
+  if (!user?.id) {
+    console.log("No user")
+    return (
+      <PageWrapper>
+      <div className="flex flex-col max-w-[70rem]">
+        <HeroSection />
+      </div>
+    </PageWrapper>
+    )
+  }
+
+  const userSettings = await prisma.user.findUnique(
+    {
+      where: {
+        userId: user.id
+      },
+      
+    }
+  )
+
+  if (!userSettings && user) {
+    redirect("/wizard")
+  }
+
+  console.log(user?.lastName)
+  console.log(userSettings?.userId)
+
   return (
     <PageWrapper>
       <div className="flex flex-col max-w-[70rem]">
