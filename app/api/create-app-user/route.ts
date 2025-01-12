@@ -1,17 +1,14 @@
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+
 
 export async function GET() {
     const clerkUser = await currentUser();
 
     if (!clerkUser) {
-        return {
-            status: 401,
-            body: {
-                error: "Unauthorized",
-            },
-        };
+        redirect("/sign-in")
     }
 
     let userInfo = await prisma.user.findUnique({
