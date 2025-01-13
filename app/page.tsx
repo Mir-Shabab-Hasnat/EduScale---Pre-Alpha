@@ -35,6 +35,7 @@ export default async function Home() {
         userId: user.id
       },
       
+      
     }
   )
 
@@ -48,7 +49,7 @@ export default async function Home() {
   return (
     <PageWrapper>
       <div className="flex flex-col max-w-[70rem]">
-        <HeroSection />
+        <HeroSection/>
       </div>
     </PageWrapper>
   );
