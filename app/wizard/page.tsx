@@ -1,3 +1,4 @@
+import Logo from '@/components/Logo';
 import WizardForm from '@/components/wizard/WizardForm';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
@@ -10,10 +11,9 @@ const WizardPage = async () => {
     }
 
   return (
-    <div>WizardPage
-        <div>
-            <WizardForm />
-        </div>
+    <div>
+      <Logo />
+      <WizardForm />
     </div>
   )
 }

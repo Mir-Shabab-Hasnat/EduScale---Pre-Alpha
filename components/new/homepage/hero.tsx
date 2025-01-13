@@ -6,12 +6,14 @@ import Link from 'next/link';
 import {motion} from 'framer-motion';
 
 import { ArrowRight } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 export default function HeroSection() {
     
 
     return (
         <div className='flex flex-col items-center justify-center mt-[7rem] mb-[3rem] p-3'>
+            <Logo />
             <h1 className="scroll-m-20 text-3xl sm:text-3xl md:text-5xl font-semibold tracking-tight lg:text-5xl text-center max-w-[750px]">
                 Mordern Education Management <span className='text-cyan-400'>Made Simple</span>
             </h1>
