@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
-export async function CreateUserSchool({ schoolName }: {schoolName: string}) {
+export async function CreateUserSchool( {name, userType}: {name: string, userType: string}) {
     const user = await currentUser();
     if (!user) {
         redirect('/sign-in')
@@ -23,7 +23,7 @@ export async function CreateUserSchool({ schoolName }: {schoolName: string}) {
     const school = await prisma.school.create({
         data: {
             schoolId: user.id,
-            name: schoolName
+            name: name
         }
     })
 

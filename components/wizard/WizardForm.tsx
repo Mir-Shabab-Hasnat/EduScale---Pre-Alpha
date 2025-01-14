@@ -64,8 +64,9 @@ const WizardForm = () => {
     resolver: zodResolver(WizardFormSchema),
   });
 
-  const onSubmit = () => {
+  const onSubmit = (data: z.infer<typeof WizardFormSchema>) => {
     console.log("Form submitted");
+    mutation.mutate(data)
   };
 
   return (
@@ -79,7 +80,7 @@ const WizardForm = () => {
             <FormItem>
               <FormLabel className="text-md">School Name</FormLabel>
               <FormControl>
-                <Input placeholder="Your School's Name" {...field} />
+                <Input type="name" placeholder="Your School's Name" {...field} />
               </FormControl>
               
               <FormMessage />
@@ -151,7 +152,7 @@ const WizardForm = () => {
           )}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit" disabled={mutation.isPending}>Submit</Button>
       </form>
     </Form>
   );
