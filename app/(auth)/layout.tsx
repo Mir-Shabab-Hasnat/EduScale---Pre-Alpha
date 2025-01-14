@@ -6,7 +6,7 @@ const layout = ({children}: {children: ReactNode}) => {
         <div className='mt-12'>
             {children}
         </div>
-        layout
+        
     </div>
   )
 }

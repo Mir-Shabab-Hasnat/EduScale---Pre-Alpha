@@ -13,49 +13,60 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  userId    String   @id
+  name      String
+  email     String   @unique
+  school    School?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Site {
-  id         String   @id @default(cuid())
-  subdomain  String   @unique
-  schoolId   String   @unique
-  school     School   @relation(fields: [schoolId], references: [id], onDelete: Cascade)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id        String   @id @default(cuid())
+  subdomain String   @unique
+  schoolId  String   @unique
+  school    School   @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model School {
-  id          String     @id @default(cuid())
-  name        String
-  admins      Admin[]    // One-to-many relationship with Admin
-  teachers    Teacher[]  // One-to-many relationship with Teacher
-  students    Student[]  // One-to-many relationship with Student
-  site        Site?      // Optional relationship with Site
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  id        String    @id @default(uuid())
+  name      String
+  user      User      @relation(fields: [schoolId], references: [userId])
+  schoolId  String    @unique
+  admins    Admin[] // One-to-many relationship with Admin
+  teachers  Teacher[] // One-to-many relationship with Teacher
+  students  Student[] // One-to-many relationship with Student
+  site      Site? // Optional relationship with Site
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 model Admin {
-  id        String   @id @default(cuid())
-  name      String
-  email     String   @unique
-  password  String
-  schoolId  String
-  school    School   @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  id       String @id @default(cuid())
+  name     String
+  email    String @unique
+  password String
+  schoolId String
+  school   School @relation(fields: [schoolId], references: [id], onDelete: Cascade)
 }
 
 model Teacher {
-  id        String   @id @default(cuid())
-  name      String
-  email     String   @unique
-  password  String
-  schoolId  String
-  school    School   @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  id       String @id @default(cuid())
+  name     String
+  email    String @unique
+  password String
+  schoolId String
+  school   School @relation(fields: [schoolId], references: [id], onDelete: Cascade)
 }
 
 model Student {
-  id         String    @id @default(cuid())
-  name       String
-  email      String    @unique
-  password   String
-  schoolId   String
-  school     School    @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  id       String @id @default(cuid())
+  name     String
+  email    String @unique
+  password String
+  schoolId String
+  school   School @relation(fields: [schoolId], references: [id], onDelete: Cascade)
 }

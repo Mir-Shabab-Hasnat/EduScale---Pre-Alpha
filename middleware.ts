@@ -2,7 +2,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 const isPublicRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)", "/"]);
-const homePagePaths = ["/", "/about-us", "/blog", "/get-started", "/about-us", "/sign-in", "/sign-up", ""];
+const homePagePaths = ["/","/wizard", "/about-us", "/get-started",  "/blog", "/about-us", "/sign-in", "/sign-up", "/api/create-app-user"];
 
 export default clerkMiddleware(async (auth, request) => {
   console.log("Middleware running");
@@ -10,7 +10,7 @@ export default clerkMiddleware(async (auth, request) => {
     await auth.protect();
   }
 
-  const clerkUser = await auth();
+  
 
   const url = request.nextUrl;
   const pathname = url.pathname;
