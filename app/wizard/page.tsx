@@ -42,13 +42,7 @@ const WizardPage = async () => {
           </CardContent>
         </Card>
         <Separator />
-        <Button className="w-full" asChild>
-          <Link href={"/get-started"}>
-            <span className="font-bold">
-              I&apos;m done!
-            </span>
-          </Link>
-        </Button>
+        
         <div className="mt-8">
           <Logo />
         </div>

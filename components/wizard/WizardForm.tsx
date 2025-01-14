@@ -62,6 +62,10 @@ const WizardForm = () => {
 
   const form = useForm<z.infer<typeof WizardFormSchema>>({
     resolver: zodResolver(WizardFormSchema),
+    defaultValues: {
+      name: "",
+      userType: "",
+    }
   });
 
   const onSubmit = (data: z.infer<typeof WizardFormSchema>) => {
