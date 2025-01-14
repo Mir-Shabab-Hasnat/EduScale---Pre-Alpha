@@ -37,7 +37,7 @@ const WizardPage = async () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-              Stuff
+              <WizardForm />
           </CardContent>
         </Card>
         <Separator />
